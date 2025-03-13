@@ -20,12 +20,10 @@ const Footer = () => {
               <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">
                   <MDBIcon color="secondary" icon="tractor" className="me-3" />
-                  IF Feiras
+                  Nexa
                 </h6>
                 <p>
-                  Here you can use rows and columns to organize your footer
-                  content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit.
+                  A Nexa é a plataforma ideal para facilitar o cadastro de escolas em toda a Paraíba. Com um sistema ágil, seguro e intuitivo, conectamos instituições de ensino a um banco de dados eficiente, garantindo organização e praticidade.
                 </p>
               </MDBCol>
 
@@ -33,11 +31,11 @@ const Footer = () => {
                 <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
                 <p>
                   <MDBIcon color="secondary" icon="home" className="me-2" />
-                  New York, NY 10012, US
+                  Guarabira, IFPB, PB
                 </p>
                 <p>
                   <MDBIcon color="secondary" icon="envelope" className="me-3" />
-                  info@example.com
+                  nexa@gmail.com
                 </p>
                 <p>
                   <MDBIcon color="secondary" icon="phone" className="me-3" /> +

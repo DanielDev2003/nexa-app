@@ -8,8 +8,9 @@ import {
 import { useEffect, useState } from 'react';
 
 const PropriedadesTable = ({ propriedades, setPropriedades }) => {
+
   const getPropriedades = (event) => {
-    fetch('http://localhost:3000/propriedades')
+    fetch('http://localhost:3000/instituicoes')
       .then((response) => response.json())
       .then((data) => {
         setPropriedades([...data]);
@@ -26,24 +27,26 @@ const PropriedadesTable = ({ propriedades, setPropriedades }) => {
       <MDBTable hover>
         <MDBTableHead>
           <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Logradouro</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Cidade</th>
-            <th scope="col">Latitude</th>
-            <th scope="col">Longitude</th>
+            <th scope="col">Regiao</th>
+            <th scope="col">UF</th>
+            <th scope="col">Municipio</th>
+            <th scope="col">Entidade</th>
+            <th scope="col">Matriculas</th>
+            <th scope="col">Mesoregiao</th>
+            <th scope="col">Microregiao</th>
           </tr>
         </MDBTableHead>
         <MDBTableBody>
           {propriedades.map((propriedades, i) => {
             return (
               <tr key={i}>
-                <td>{propriedades.nome}</td>
-                <td>{propriedades.logradouro}</td>
-                <td>{propriedades.estado}</td>
-                <td>{propriedades.cidade}</td>
-                <td>{propriedades.latitude}</td>
-                <td>{propriedades.longitude}</td>
+                <td>{propriedades.Regiao}</td>
+                <td>{propriedades.UF}</td>
+                <td>{propriedades.Municipio}</td>
+                <td>{propriedades.Entidade}</td>
+                <td>{propriedades.Matriculas}</td>
+                <td>{propriedades.Mesoregiao}</td>
+                <td>{propriedades.Microregiao}</td>
                 <td>
                   <MDBBtn floating tag="a" className="mx-2">
                     <MDBIcon fas icon="pen" />
