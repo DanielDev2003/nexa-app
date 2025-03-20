@@ -6,6 +6,7 @@ import Propriedades from './views/Propriedades';
 import Sobre from './views/Sobre';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Principal from './layouts/Principal';
+import { PropriedadeContextProvider } from './context/PropriedadeContext';
 
 function App() {
   return (
@@ -13,7 +14,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Principal />}>
           <Route index element={<Home />} />
-          <Route path="propriedades" element={<Propriedades />} />
+          <Route
+            path="propriedades"
+            element={
+              <PropriedadeContextProvider>
+                <Propriedades />
+              </PropriedadeContextProvider>
+            }
+          />
           <Route path="sobre" element={<Sobre />} />
         </Route>
       </Routes>

@@ -9,7 +9,10 @@ const Principal = () => {
     <div className="App">
       <Header></Header>
       {/* Irá mudar de acordo com a página */}
-      <Outlet />
+      <Container className="mt-2">
+        <Outlet />
+      </Container>
+
       <Footer></Footer>
     </div>
   );

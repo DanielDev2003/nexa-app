@@ -5,10 +5,34 @@ import {
   MDBTableBody,
   MDBTableHead,
 } from 'mdb-react-ui-kit';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import usePropriedade from '../context/PropriedadeContext';
+import { toast } from 'react-toastify';
 
-const PropriedadesTable = ({ propriedades, setPropriedades }) => {
+const PropriedadesTable = () => {
+  let { propriedades, setPropriedades } = usePropriedade();
 
+
+  const handleDelete = (id) => {
+    if (!window.confirm('Tem certeza que deseja excluir esta instituição?')) {
+      return;
+    }
+
+    fetch(`http://localhost:3000/instituicoes/${id}`, {
+      method: 'DELETE',
+      mode: 'cors',
+    })
+      .then((response) => {
+        if (response.ok) {
+          setPropriedades(propriedades.filter(prop => prop.id !== id));
+        } else {
+          console.error('Erro ao excluir a instituição.');
+        }
+      })
+      .catch((error) => {
+        console.error('Erro na requisição DELETE:', error);
+      });
+  };
   const getPropriedades = (event) => {
     fetch('http://localhost:3000/instituicoes')
       .then((response) => response.json())
@@ -52,7 +76,7 @@ const PropriedadesTable = ({ propriedades, setPropriedades }) => {
                     <MDBIcon fas icon="pen" />
                   </MDBBtn>
 
-                  <MDBBtn floating tag="a" className="mx-2" color="danger">
+                  <MDBBtn floating tag="a" className="mx-2" color="danger" onClick={() => handleDelete(propriedades.id)}>
                     <MDBIcon fas icon="trash-alt" />
                   </MDBBtn>
                 </td>
